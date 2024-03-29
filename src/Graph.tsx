@@ -36,19 +36,13 @@ class Graph extends Component<IProps, {}> {
       "perspective-viewer"
     )[0] as unknown) as PerspectiveViewerElement;
     elem.setAttribute("view", "y_line");
-    elem.setAttribute("column-pivots", "['stock']");
-    elem.setAttribute("row-pivots", "['timestamp']");
+    elem.setAttribute("column-pivots", '["stock"]');
+    elem.setAttribute("row-pivots", '["timestamp"]');
     elem.setAttribute("column", '["top_ask_price"]');
     elem.setAttribute(
       "aggregates",
-      `{
-      "stock": "discount count",
-      "top_ask_price": "avg",
-      "top_bid_price": "avg",
-      "timepstamp":"distinct count",
-    }`
+      '{"stock":"distinct_count", "top_ask_price":"avg", "top_bid_price":"avg", "timestamp":"distinct_count"}'
     );
-
     const schema = {
       stock: "string",
       top_ask_price: "float",
